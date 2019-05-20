@@ -1,0 +1,34 @@
+Inserir via procedure os cursos:
+
+CALL sp_curso_inserir(7,'Bio','Biologia');
+CALL sp_curso_inserir(8,'Eng.','Engenharia');
+CALL sp_curso_inserir(9,'Comp','Computacao');
+CALL sp_curso_inserir(10,'Fis','Fisica');
+CALL sp_curso_inserir(11,'Geo','Geologia');
+CALL sp_curso_inserir(12,'His','História');
+CALL sp_curso_inserir(13,'Mat','Matemática');
+---------------------------------------------------------------------------
+Criar um procedimento para excluir registros da tabela curso, a partir da informação do código curso
+
+Delimiter $$
+create procedure sp_curso_excluir(var_cod int)
+	begin
+	 DELETE FROM curso WHERE cod_curso = 
+     var_cod;
+end $$
+delimiter;
+----------------------------------------------------------------------------
+Deletar via procedure os cursos de codigo 11 e 12
+
+
+select * from curso;
+call sp_curso_excluir(11);
+select * from curso;
+call sp_curso_excluir(12);
+----------------------------------------------------------------------------
+Atualizar cursos via procedure de codigo 9 onde a sigla é Comp. e aterar para compt
+
+call sp_curso_inserir_atualizar(9,'Compt','Computação');
+select * from curso;
+
+
